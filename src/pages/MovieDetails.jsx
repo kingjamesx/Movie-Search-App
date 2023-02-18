@@ -9,17 +9,17 @@ const MovieDetails = () => {
    const singleMovie=movie.find((item)=>item.id==id)
    console.log(singleMovie)
   return (
-    <div>
+    <div className='single-movie'>
        <section className='movie-details'>
         <div><img src={img_path+singleMovie.poster_path} alt="" /></div>
         <div>
-            <h1>Title:{singleMovie.original_title}</h1>
-            <p>Description:{singleMovie.overview}</p>
-            <p>Release-date:{singleMovie.release_date}</p>
-            <p>Rating:{singleMovie.vote_average}</p>
+            <h1 className='movie-details-title'>Title: {singleMovie.original_title}</h1>
+            <p className='desc '>Description: {singleMovie.overview}</p>
+            <p className='desc'>Release-date: {singleMovie.release_date}</p>
+            <p className='desc'>Rating: {singleMovie.vote_average}</p>
         </div>
        </section>
-        <Link to='/'>Go back Home</Link>
+       <div className='moviedetails-btn-box'><Link to='/'> <button>Go back Home</button> </Link></div> 
     </div>
   )
 }

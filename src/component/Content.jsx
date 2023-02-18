@@ -76,17 +76,17 @@ const Content = () => {
       },[]
     )
   return (
-    <div>
-      <section>
-      {array.map(item=><button key={item} onClick={()=>handleSort(item)}>{item}</button>)}
-      </section>
-        <section>
-            <input type="text" onChange={handleChange} /> <button>Search</button>
+    <div className='content'>
+        <section className='search-box'>
+            <input type="text" onChange={handleChange} placeholder="Search for a movie"/> <button>Search</button>
         </section>
-        <section>
+      <section className='tags'>
+        <p className='filter-text'>Filter By:</p>
+      {array.map(item=><button key={item} onClick={()=>handleSort(item)}>{item}</button>)}
+      <section className='filters'>
           <div>
-          <label htmlFor="">Genre</label>
-           <select name="" id="">
+          <label htmlFor="">Genre: </label>
+           <select name="" id="select" >
             {genre.map((item)=>{
               return(
                 <option key={item.id} id={item.id} onClick={handleGenre}>{item.name}</option>
@@ -95,8 +95,8 @@ const Content = () => {
            </select>
           </div>
            <div>
-           <label htmlFor="">Release Date</label>
-           <select name="" id="">
+           <label htmlFor="">Release Date: </label>
+           <select name="" id="select">
             {date.map((item)=>{
               return(
                 <option key={item} onClick={handleDate}>{item}</option>
@@ -105,16 +105,20 @@ const Content = () => {
            </select>
            </div>
         </section>
+      </section>
+      
+        
          <section className='card-container'>
         {movieData.length==0?<p>No Movie Found</p>: movieData.map((movie)=>{
           return(
-            <div key={movie.id}>
+            <div key={movie.id} className='grid-item'>
                <Card data={movie}/>
             </div>
             
           )
         })}
          </section>
+         <hr />
     </div>
   )
 }

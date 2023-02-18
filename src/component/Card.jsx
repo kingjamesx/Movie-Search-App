@@ -5,13 +5,15 @@ const Card = ({data}) => {
   const img_path="https://image.tmdb.org/t/p/w500"
   return (
            <div className='card'>
+             <Link to={`/${data.id}`}>
                <span>
                 <img src={img_path+data.poster_path} alt="image of movie" />
                </span>
                <span>
-                <Link to={`/${data.id}`}>{data.original_title}</Link>
+              <p> {data.original_title}</p>
                 <p>{data.release_date}</p>
                </span>
+               </Link>
             </div>
   )
 }
