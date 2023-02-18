@@ -109,7 +109,7 @@ const Content = () => {
       
         
          <section className='card-container'>
-        {movieData.length==0?<p>No Movie Found</p>: movieData.map((movie)=>{
+        {movieData.length==0?<p className='no-movie'>No Movie Found</p>: movieData.map((movie)=>{
           return(
             <div key={movie.id} className='grid-item'>
                <Card data={movie}/>
