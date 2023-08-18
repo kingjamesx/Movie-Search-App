@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+
 import './App.css'
 import Home from './pages/Home'
 import MovieDetails from './pages/MovieDetails'
@@ -7,7 +7,6 @@ import { Routes,Route } from 'react-router-dom'
 import { useEffect } from 'react'
 function App() {
   // Inside the iframe
-        window.parent.postMessage('Hello from iframe', '*');
 
   return (
     <div className="App">
