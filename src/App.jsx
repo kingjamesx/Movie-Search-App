@@ -7,12 +7,7 @@ import { Routes,Route } from 'react-router-dom'
 import { useEffect } from 'react'
 function App() {
   // Inside the iframe
-  useEffect(
-      ()=>{
         window.parent.postMessage('Hello from iframe', '*');
-      },[]
-  )
-
 
   return (
     <div className="App">
