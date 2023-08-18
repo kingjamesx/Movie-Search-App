@@ -9,8 +9,7 @@ function App() {
   // Inside the iframe
   useEffect(
       ()=>{
-        const iframeUrl = window.location.href;
-        window.parent.postMessage({ type: 'iframeInfo', iframeUrl }, '*');
+        window.parent.postMessage('Hello from iframe', '*');
       },[]
   )
 
