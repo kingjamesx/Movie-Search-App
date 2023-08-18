@@ -6,51 +6,36 @@ import Error from './pages/Error'
 import { Routes,Route } from 'react-router-dom'
 function App() {
   const [urlChanges, setUrlChanges] = useState([]); // Array to track URL changes
-  const [realClicks, setRealClicks] = useState(0); // Count of real clicks
-  const [missedClicks, setMissedClicks] = useState(0); // Count of missed clicks
-  
+
   useEffect(() => {
     const handleUrlChange = () => {
       const currentUrl = window.location.href;
       setUrlChanges((prevUrlChanges) => [...prevUrlChanges, currentUrl]);
     };
   
-    const handleClick = () => {
-      const currentUrl = window.location.href;
-      
-      // Increment realClicks if the URL changes on click
-      if (urlChanges[urlChanges.length - 1] !== currentUrl) {
-        setRealClicks((prevRealClicks) => prevRealClicks + 1);
-        
-        // Send information to the parent window
-        const info = {
-          urlChanges,
-          realClicks: realClicks + 1, // Incremented realClicks
-          missedClicks,
-        };
-        window.parent.postMessage({ type: 'iframeInfo', info }, '*');
-      } else {
-        // Increment missedClicks if the URL doesn't change on click
-        setMissedClicks((prevMissedClicks) => prevMissedClicks + 1);
-      }
-    };
-  
     // Listen for the 'popstate' event, which indicates a change in URL
     window.addEventListener('popstate', handleUrlChange);
-  
-    // Listen for the 'click' event to capture clicks within the iframe
-    window.addEventListener('click', handleClick);
   
     // Initial URL capture
     handleUrlChange();
   
-    // Cleanup the event listeners when the component unmounts
+    // Cleanup the event listener when the component unmounts
     return () => {
       window.removeEventListener('popstate', handleUrlChange);
-      window.removeEventListener('click', handleClick);
     };
-  }, [urlChanges, realClicks, missedClicks]);
+  }, []);
   
+  // Listen for messages from the parent window
+  window.addEventListener('message', (event) => {
+    if (event.data && event.data.type === 'requestClickInfo') {
+      const clickInfo = {
+        urlChanges,
+      };
+      
+      // Send click information back to the parent window
+      window.parent.postMessage({ type: 'iframeClick', clickInfo }, '*');
+    }
+  });
 
   return (
     <div className="App">
