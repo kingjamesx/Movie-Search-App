@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect,useState } from 'react'
 import './App.css'
 import Home from './pages/Home'
 import MovieDetails from './pages/MovieDetails'
