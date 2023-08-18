@@ -7,7 +7,6 @@ const MovieDetails = () => {
     const movie=useSelector((state)=>state.Data.movies.payload)
     const {id}=useParams()
    const singleMovie=movie.find((item)=>item.id==id)
-   console.log(singleMovie)
   return (
     <div className='single-movie'>
        <section className='movie-details'>
