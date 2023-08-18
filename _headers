@@ -1,3 +1,2 @@
-X-Frame-Options: ALLOW-FROM http://localhost:2222/
-/\*
-Content-Security-Policy: frame-ancestors 'self' http://localhost:2222
+\*
+Access-Control-Allow-Origin: http://localhost:2222/answer-test/cid-y4fdy-86unr-llg5vxuw-4/WebsiteEvaluation/task-1-1
