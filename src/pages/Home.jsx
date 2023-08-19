@@ -3,11 +3,11 @@ import Hero from '../component/Hero'
 import Footer from '../component/Footer'
 import Content from '../component/Content'
 const Home = () => {
-  useEffect(
-    ()=>{
-      window.parent.postMessage('Hello from iframe', '*');
-    },[]
-)
+//   useEffect(
+//     ()=>{
+//       window.parent.postMessage('Hello from iframe', '*');
+//     },[]
+// )
 
 
   return (
