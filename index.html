@@ -10,7 +10,7 @@
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
     <script>
-    (function (e, o) {
+      (function (e, o) {
     if (typeof exports === 'object' && typeof module !== 'undefined') {
         module.exports = o();
     } else if (typeof define === 'function' && define.amd) {
@@ -37,7 +37,9 @@
                 }
             }).observe(o, { childList: true, subtree: true });
         };
-    }
+    }();
+});
+
     </script>
   </body>
 </html>
