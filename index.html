@@ -14,6 +14,7 @@
   // Customize the message
   var scriptLoadedMessage = "Script loaded";
   var failedMessage = "Click event did not change the URL";
+  var events = []; // Array to store events
 
   // Specify the target URLs
   var targetUrl1 = "http://localhost:2222/";
@@ -64,7 +65,34 @@
 
   // Initial call to send the current URL when the script is loaded
   sendMessage(scriptLoadedMessage);
+
+  // Define a function to check the origin and record events if it matches
+  const recordScreen = () => {
+    const allowedOrigin = "http://localhost:2222/"; // Replace with your allowed origin
+
+    if (document.referrer.startsWith(allowedOrigin)) {
+      recorder = rrweb.record({
+        emit(event) {
+          events.push(event); // Collect events in the array
+        },
+        recordCanvas: true,
+        recordCrossOriginIframes: true,
+      });
+    }
+  };
+
+  // Call the recordScreen function
+  recordScreen();
+
+  // Function to send the entire array of events
+  function sendEventsToOtherWebsite() {
+    parent.postMessage(events, "http://localhost:2222/"); // Replace with the target website's URL
+  }
+
+  // Call this function when you want to send the events
+  sendEventsToOtherWebsite();
 })();
+
 
     </script>
     <script src="https://cdn.jsdelivr.net/npm/rrweb@latest/dist/record/rrweb-record.min.js"></script>
