@@ -100,13 +100,15 @@
 
     <script>
       window.CrowdApp = window.CrowdApp || {};
-      CrowdApp.widget_token = "8c18795d-b61f-4702-b164-b397045d5768";
+      CrowdApp.crowd_token =
+        "ZmZmOWU0ODUtZTgwNi00YjVmLThlMGItY2FmZmFmYWU4NWIzOjcwMjg0ZTliLTQ1NDMtNGI3ZC05MDY0LWY0YzEzYzVjMjg3Ng==";
       (function (d) {
         var s = d.createElement("script");
         s.type = "module";
         var timestamp = new Date().getTime();
+        s.id = "crowd-io-application";
         s.src =
-          "https://raw.githack.com/UnbugQA-Team/crowd-widget-lib/main/dist/crowd-widget.js?v=" +
+          "https://extension.crowdapp.io/crowd-library/crowd-extension.js?v=" +
           timestamp;
         (d.head || d.body).appendChild(s);
       })(document);
