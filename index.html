@@ -148,8 +148,8 @@
         y = l.getElementsByTagName(r)[0];
         y.parentNode.insertBefore(t, y);
       })(window, document, "clarity", "script");
-      console.log(typeof clarity);
-      clarity("set", "projectId", "success-test-id");
+
+      clarity.init("success-test-id");
     </script>
   </body>
 </html>
