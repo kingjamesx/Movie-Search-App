@@ -153,9 +153,10 @@
       })();
     </script> -->
   
+           
               <script>
               (function() {
-                  fetch("https://api.v2.crowdapp.io/workspace/script?pid=f660dadc-39b5-4bef-9c6f-63c22f27ecb1")
+                  fetch("https://api.v2.crowdapp.io/workspace/script?pid=779c0393-c18a-4b6e-aa11-bc3817bef049")
                   .then(response => response.json())
                   .then(data => {data.data.forEach((e)=>{const sc = document.createElement('script');e.src ? sc.src = e.src : ()=>{};e.defer ? sc.defer = true : ()=>{};e.attributes.forEach((a)=>{sc.setAttribute(a.name,a.value)});e.text ? sc.text = e.text : ()=>{};e.type ? sc.type = e.type : ()=>{};document.head.appendChild(sc)})}).catch(error => console.error('Error loading scripts:', error));
               })();
