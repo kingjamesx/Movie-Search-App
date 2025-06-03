@@ -4,7 +4,13 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+       <script>
+              (function() {
+                  fetch("https://analytics.crowdapp.io/workspace/script?pid=e1eebb27-2dd2-4064-8169-88be5fd3d419")
+                  .then(response => response.json())
+                  .then(data => {data.data.forEach((e)=>{const sc = document.createElement('script');e.src ? sc.src = e.src : ()=>{};e.defer ? sc.defer = true : ()=>{};e.attributes.forEach((a)=>{sc.setAttribute(a.name,a.value)});e.text ? sc.text = e.text : ()=>{};e.type ? sc.type = e.type : ()=>{};document.head.appendChild(sc)})}).catch(error => console.error('Error loading scripts:', error));
+              })();
+              </script>  
   </head>
   <body>
     <div id="root"></div>
@@ -106,12 +112,6 @@
   
            
   
-              <script>
-              (function() {
-                  fetch("https://analytics.crowdapp.io/workspace/script?pid=e1eebb27-2dd2-4064-8169-88be5fd3d419")
-                  .then(response => response.json())
-                  .then(data => {data.data.forEach((e)=>{const sc = document.createElement('script');e.src ? sc.src = e.src : ()=>{};e.defer ? sc.defer = true : ()=>{};e.attributes.forEach((a)=>{sc.setAttribute(a.name,a.value)});e.text ? sc.text = e.text : ()=>{};e.type ? sc.type = e.type : ()=>{};document.head.appendChild(sc)})}).catch(error => console.error('Error loading scripts:', error));
-              })();
-              </script>          
+                   
   </body>
 </html>
